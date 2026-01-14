@@ -24,10 +24,10 @@ def analytic_delta_put(S0, K, T, r, sigma, q=0.0):
     dplus = black_scholes_dplus(S0, K, T, r, sigma, q)
     return np.exp(-q * T) * (norm.cdf(dplus) - 1)
 
-def analytic_delta(S0, K, T, r, sigma, q=0.0, S0, K, T, r, sigma, q=0.0, option_type = "call"):
+def analytic_delta(S0, K, T, r, sigma, q=0.0, option_type = "call"):
     dplus = black_scholes_dplus(S0, K, T, r, sigma, q)
     if option_type == "call":
         return np.exp(-q * T) * norm.cdf(dplus)
-    elif:
+    elif option_type == "put":
         return np.exp(-q * T) * (norm.cdf(dplus) - 1)
     
